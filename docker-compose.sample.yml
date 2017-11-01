@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  log-watcher:
+    image: negokaz/log-watcher:latest
+    environment:
+      CONDITION_TO_NOTIFY: error
+      SLACK_INCOMMING_WEBHOOK_URL: https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
+      SLACK_NOTIFICATION_TITLE: ERROR OCCURRED
+    volumes:
+      - /var/log/messages:/target:ro
